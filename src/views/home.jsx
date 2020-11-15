@@ -29,6 +29,7 @@ export default function Home() {
 			id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 		}
 		setItems(oldItems => [...oldItems, item]);
+		document.getElementById("todo-input").value = "";
 	}
 
 	const toggleComplete = (id) => {
@@ -57,18 +58,22 @@ export default function Home() {
 					</div>
 				</div>
 				<div id="todo-tasks">
-					<div id="todo-incomplete">
-						{incompleteItems.length >= 1 ? <h3 className="todo-tasks-title">Incomplete Tasks</h3> : ''}
-						{incompleteItems.map((item, i) => (
-							<TodoItem key={i} id={item.id} name={item.text} completed={item.complete} toggle={toggleComplete} remove={removeItem} />
-						))}
-					</div>
-					<div id="todo-complete">
-						{completeItems.length >= 1 ? <h3 className="todo-tasks-title">Completed Tasks</h3> : ''}
-						{completeItems.map((item, i) => (
-							<TodoItem key={i} id={item.id} name={item.text} completed={item.complete} toggle={toggleComplete} remove={removeItem} />
-						))}
-					</div>
+					{incompleteItems.length >= 1 ?
+						<div id="todo-incomplete">
+							<h3 className="todo-tasks-title">Incomplete Tasks</h3>
+							{incompleteItems.map((item, i) => (
+								<TodoItem key={i} id={item.id} name={item.text} completed={item.complete} toggle={toggleComplete} remove={removeItem} />
+							))}
+						</div>
+					: '' }
+					{completeItems.length >= 1 ?
+						<div id="todo-complete">
+							<h3 className="todo-tasks-title">Completed Tasks</h3>
+							{completeItems.map((item, i) => (
+								<TodoItem key={i} id={item.id} name={item.text} completed={item.complete} toggle={toggleComplete} remove={removeItem} />
+							))}
+						</div>
+					: ''}
 				</div>
 			</div>
     	</div>
