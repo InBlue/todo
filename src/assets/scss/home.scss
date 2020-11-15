@@ -76,11 +76,25 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
                 box-sizing: border-box;
                 margin-bottom: 20px;
                 display: flex;
-                justify-content: flex-start;
+                justify-content: space-between;
                 align-items: center;
                 cursor: default; // Make the cursor not become the text selecting cursor on hover
                 user-select: none; // Disable text selection in modern browsers
-                svg {
+                .todo-left {
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                }
+                .todo-right {
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    opacity: 0;
+                    transition: opacity ease-in-out .1s;
+                    cursor: pointer;
+                }
+                .todo-action {
+                    height: 32px;
                     margin-right: 10px;
                     cursor: pointer;
                 }
@@ -89,6 +103,11 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
                         weight: 400;
                         family: 'Inter', sans-serif;
                         size: 16px;
+                    }
+                }
+                &:hover {
+                    .todo-right {
+                        opacity: 1;
                     }
                 }
             }

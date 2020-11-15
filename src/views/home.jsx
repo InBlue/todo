@@ -40,6 +40,12 @@ export default function Home() {
 		setItems(oldItems => [...oldItems, item[0]]);
 	}
 
+	const removeItem = (id) => {
+		const oldItems = items;
+		const updatedItems = oldItems.filter(item => item.id !== id);
+		setItems(updatedItems);
+	}
+
 	return (
 		<div id="home"> {/* React requires all components to be surrounded by a parent element */}
 			<div id="todo">
@@ -54,13 +60,13 @@ export default function Home() {
 					<div id="todo-incomplete">
 						{incompleteItems.length >= 1 ? <h3 className="todo-tasks-title">Incomplete Tasks</h3> : ''}
 						{incompleteItems.map((item, i) => (
-							<TodoItem key={i} id={item.id} name={item.text} toggle={toggleComplete} />
+							<TodoItem key={i} id={item.id} name={item.text} toggle={toggleComplete} remove={removeItem} />
 						))}
 					</div>
 					<div id="todo-complete">
 						{completeItems.length >= 1 ? <h3 className="todo-tasks-title">Completed Tasks</h3> : ''}
 						{completeItems.map((item, i) => (
-							<TodoItem key={i} id={item.id} name={item.text} toggle={toggleComplete} />
+							<TodoItem key={i} id={item.id} name={item.text} toggle={toggleComplete} remove={removeItem} />
 						))}
 					</div>
 				</div>
