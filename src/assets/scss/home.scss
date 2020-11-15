@@ -1,4 +1,4 @@
-$accentColor: #6eeb83; // Using a SCSS variable for easy access of the color.
+$accentColor: #00e676; // Using a SCSS variable for easy access of the color.
 $boxShadowValue: 0 5px 10px 1px rgba(0,0,0,.1), 0 0px 10px 1px rgba(0,0,0,.02); // A variable for a widely used box-shadow
 $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.04); // Alternate form of the box-shadow
 
@@ -17,7 +17,7 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
     #todo-header {
         text-align: center; // Keep most* child elements in the center of the this element.
         #todo-title {
-            color: $accentColor;
+            color: $accentColor; // Use the SCSS variable which is declared above.
             font-size: 60px;
         }
         #todo-new {
@@ -66,7 +66,7 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
         text-align: left;
         & > * {
             width: 100%;
-            margin-top: 40px;
+            margin-top: 30px;
             .todo-item {
                 width: 100%;
                 border-radius: 5px; 
@@ -82,19 +82,19 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
                 user-select: none; // Disable text selection in modern browsers
                 .todo-left {
                     display: flex;
-                    justify-content: flex-start;
+                    justify-content: flex-start; // flex-start is likely to be on the left-side of the element which is why it is used to align elements to the left.
                     align-items: center;
                 }
                 .todo-right {
                     display: flex;
-                    justify-content: flex-end;
+                    justify-content: flex-end; // flex-end is likely to be on the right, which is why it is used to align elements to the right.
                     align-items: center;
-                    opacity: 0;
+                    opacity: 0; // Hide the trashcan unless the user hovers over the element.
                     transition: opacity ease-in-out .1s;
                     cursor: pointer;
                 }
                 .todo-action {
-                    height: 32px;
+                    height: 32px; // Without a specific height, the svg wouldn't align correctly with the text.
                     margin-right: 10px;
                     cursor: pointer;
                 }
@@ -114,7 +114,7 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
         }
         .todo-tasks-title {
             color: #b8b8b8;
-            text-transform: uppercase;
+            text-transform: uppercase; // For Aesthetics, will make all text in the element uppercase.
             margin-bottom: 10px;
             font: {
                 size: 25px;

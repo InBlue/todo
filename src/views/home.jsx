@@ -12,24 +12,32 @@ export default function Home() {
 	const [completeItems, setCompleteItems] = useState([]);
 
 	useEffect(() => {
+		/*
+			This will iterate over each of the items in the localStorage, 'todo-items' array.
+			Adding the object to the incomplete or complete items state depending on their
+			'completed' value in the object.
+		*/
 		items.forEach(item => {
 			if(!item.complete) return setIncompleteItems(oldIncompleteItems => [...oldIncompleteItems, item]);
 			if(item.complete) return setCompleteItems(oldCompleteItems => [...oldCompleteItems, item]);
 		});
 		return () => {
+			/*
+				These will clear the two states so that they don't duplicate old entries when new ones are added.
+			*/
 			setIncompleteItems([]);
 			setCompleteItems([]);
 		}
-	}, [items]);
+	}, [items]); // 'items' is in the dependency array so that each time it updates the above code is executed
 
 	const addItem = () => {
 		const item = {
-			text: itemText,
-			complete: false,
-			id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
+			text: itemText, // 
+			complete: false, // Default all tasks to default
+			id: Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) // Randomly generate a string of text to create an ID
 		}
-		setItems(oldItems => [...oldItems, item]);
-		document.getElementById("todo-input").value = "";
+		setItems(oldItems => [...oldItems, item]); // Using spread syntax to add a new object to the items array 
+		document.getElementById("todo-input").value = ""; // Will clear the input field when the 'Add' button is pressed
 	}
 
 	const toggleComplete = (id) => {
@@ -43,8 +51,8 @@ export default function Home() {
 
 	const removeItem = (id) => {
 		const oldItems = items;
-		const updatedItems = oldItems.filter(item => item.id !== id);
-		setItems(updatedItems);
+		const updatedItems = oldItems.filter(item => item.id !== id); // Create a temporary array without the specified item id
+		setItems(updatedItems); // Set the items in the localStorage array to an array without the specified id
 	}
 
 	return (
