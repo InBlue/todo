@@ -58,4 +58,46 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
             }
         }
     }
+    #todo-tasks {
+        position: relative;
+        max-width: 560px;
+        display: grid;
+        place-items: center;
+        text-align: left;
+        & > * {
+            width: 100%;
+            .todo-item {
+                width: 100%;
+                border-radius: 5px; 
+                min-height: 50px; max-height: 50px; // Minimum and maximum set to the same value so that the height does not change.
+                box-shadow: $boxShadowValue;
+                padding: 0 20px;
+                box-sizing: border-box;
+                margin-bottom: 30px;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                svg {
+                    margin-right: 10px;
+                    cursor: pointer;
+                }
+                .todo-item-task {
+                    font: {
+                        weight: 400;
+                        family: 'Inter', sans-serif;
+                        size: 16px;
+                    }
+                }
+            }
+        }
+        .todo-tasks-title {
+            color: #b8b8b8;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font: {
+                size: 25px;
+                weight: 500;
+            }
+        }
+    }
 }

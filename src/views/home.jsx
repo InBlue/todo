@@ -10,6 +10,16 @@ export default function Home() {
 					<p id="todo-add">Add</p>
 				</div>
       		</div>
+				<div id="todo-tasks">
+					<div id="todo-incomplete">
+						<h3 className="todo-tasks-title">Incomplete Tasks</h3>
+						<TodoItem name="Make todo list" />
+					</div>
+					<div id="todo-complete">
+						<h3 className="todo-tasks-title">Completed Tasks</h3>
+					</div>
+				</div>
+			</div>
     	</div>
   	);
 }
