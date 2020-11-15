@@ -60,13 +60,13 @@ export default function Home() {
 					<div id="todo-incomplete">
 						{incompleteItems.length >= 1 ? <h3 className="todo-tasks-title">Incomplete Tasks</h3> : ''}
 						{incompleteItems.map((item, i) => (
-							<TodoItem key={i} id={item.id} name={item.text} toggle={toggleComplete} remove={removeItem} />
+							<TodoItem key={i} id={item.id} name={item.text} completed={item.complete} toggle={toggleComplete} remove={removeItem} />
 						))}
 					</div>
 					<div id="todo-complete">
 						{completeItems.length >= 1 ? <h3 className="todo-tasks-title">Completed Tasks</h3> : ''}
 						{completeItems.map((item, i) => (
-							<TodoItem key={i} id={item.id} name={item.text} toggle={toggleComplete} remove={removeItem} />
+							<TodoItem key={i} id={item.id} name={item.text} completed={item.complete} toggle={toggleComplete} remove={removeItem} />
 						))}
 					</div>
 				</div>
