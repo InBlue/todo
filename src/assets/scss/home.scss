@@ -28,7 +28,7 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
             }
             #todo-input {
                 border: none; // Hide default border-styling
-                width: 70%; 
+                width: calc(100% - 132px); 
                 min-height: 50px; max-height: 50px; // Minimum and maximum set to the same value so that the height does not change.
                 margin-right: 20px; // Give some spacing between the input field and the button on the right
                 padding: 0 20px; // Added only horizontal padding so that text is not touching the edge of the input field
@@ -60,12 +60,13 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
     }
     #todo-tasks {
         position: relative;
-        max-width: 560px;
+        max-width: 600px;
         display: grid;
         place-items: center;
         text-align: left;
         & > * {
             width: 100%;
+            margin-top: 40px;
             .todo-item {
                 width: 100%;
                 border-radius: 5px; 
@@ -73,10 +74,12 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
                 box-shadow: $boxShadowValue;
                 padding: 0 20px;
                 box-sizing: border-box;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
                 display: flex;
                 justify-content: flex-start;
                 align-items: center;
+                cursor: default; // Make the cursor not become the text selecting cursor on hover
+                user-select: none; // Disable text selection in modern browsers
                 svg {
                     margin-right: 10px;
                     cursor: pointer;
