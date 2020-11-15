@@ -1,0 +1,11 @@
+#home {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    #todo-header {
+        #todo-title {
+            color: #6eeb83;
+            font-size: 60px;
+        }
+    }
+}
