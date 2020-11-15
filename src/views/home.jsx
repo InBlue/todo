@@ -61,7 +61,7 @@ export default function Home() {
 				<div id="todo-header"> {/* I like to add prefixes to my class names and ids when using react. This is because when compiled, the stylesheets are combined and it is easy to confuse which style to apply. */}
 					<h1 id="todo-title">todo.</h1>
 					<div id="todo-new">
-						<input id="todo-input" type="text" name="todo-item" onChange={(e) => setItemText(e.target.value.toString().trim())} />
+						<input id="todo-input" type="text" name="todo-item" placeholder="Write a task to add to your todo list." onChange={(e) => setItemText(e.target.value.toString().trim())} />
 						<p id="todo-add" onClick={() => addItem()}>Add</p>
 					</div>
 				</div>
