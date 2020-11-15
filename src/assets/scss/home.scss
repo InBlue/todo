@@ -1,6 +1,6 @@
 $accentColor: #6eeb83; // Using a SCSS variable for easy access of the color.
-$boxShadowValue: 0 5px 10px 1px rgba(0,0,0,.1), 0 0px 10px 1px rgba(0,0,0,.02);
-$hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.04);
+$boxShadowValue: 0 5px 10px 1px rgba(0,0,0,.1), 0 0px 10px 1px rgba(0,0,0,.02); // A variable for a widely used box-shadow
+$hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.04); // Alternate form of the box-shadow
 
 
 #home {
@@ -21,16 +21,17 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
             font-size: 60px;
         }
         #todo-new {
-            max-width: 600px; // Restrict the width of the child elements when using display-based units (vw, vh etc.)
+            position: relative;
+            width: 600px; // Restrict the width of the child elements when using display-based units (vw, vh etc.)
             & > * { // Giving each of the child elements a specific style - In this case setting a border-radius
                 border-radius: 5px; 
             }
             #todo-input {
                 border: none; // Hide default border-styling
-                width: calc(600px * 0.7); // Calculate 70% of the 600px max width
-                min-height: 50px; max-height: 50px;
-                margin-right: 20px;
-                padding: 0 20px;
+                width: 70%; 
+                min-height: 50px; max-height: 50px; // Minimum and maximum set to the same value so that the height does not change.
+                margin-right: 20px; // Give some spacing between the input field and the button on the right
+                padding: 0 20px; // Added only horizontal padding so that text is not touching the edge of the input field
                 display: inline-block;  // Make the input element inline (Already a block element)
                 vertical-align: middle; // so that they can show inline with each other
                 box-shadow: $boxShadowValue;
@@ -46,14 +47,13 @@ $hoverBoxShadowValue: 0 5px 10px 1px rgba(0,0,0,.2), 0 0px 10px 1px rgba(0,0,0,.
                 display: inline-block;  
                 vertical-align: middle;
                 box-shadow: $boxShadowValue;
-                cursor: pointer;
-                transition: transform ease-in-out .3s, box-shadow ease-in-out .2s;
+                cursor: pointer; // Make the element have a pointer - Acting like a button element.
+                transition: box-shadow ease-in-out .2s; // Add a smooth animation when the hover effect happens.
                 font: {
                     family: 'Metropolis', sans-serif;
                 }
                 &:hover {
                     box-shadow: $hoverBoxShadowValue;
-                    // transform: translateY(-3px);
                 }
             }
         }
